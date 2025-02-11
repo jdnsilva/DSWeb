@@ -1,0 +1,3 @@
+**Hertz** nasceu em **Hamburgo** a 22 de fevereiro de 1857. Interessou-se desde muito cedo pela construção de mecanismos, tema que sempre o atraiu, mesmo enquanto trabalhou na área da física.
+
+Levado por essa sua *apetência*, frequentou uma faculdade de engenharia durante dois anos. No entanto, a sua vontade de levar a cabo investigação *científica* fê-lo optar pela física, tendo ingressado na Universidade Humboldt de Berlim em 1878.
