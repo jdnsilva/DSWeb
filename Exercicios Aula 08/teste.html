@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=keyboard_arrow_down" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        span {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            text-transform: capitalize;
+        }
+
+        #superior {
+            display: flex;
+            justify-content: space-around;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu {
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        #botoes {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        #id1, #id2 {
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 10px;
+            display: inline-block;
+            width: auto;
+        }
+
+        /* Estilo para os links */
+        #id1, #id2 {
+            border: 3px solid;
+            font-weight: bold;
+        }
+
+        /* Link "Exemplo" e "Peça uma amostra" */
+        #id2, #id1 {
+            background-color: #4d40d7;
+            border-color: #4d40d7;
+            color: white;
+        }
+
+        #id1 {
+            background-color: #4d40d7;
+        }
+
+        /* Link "Entrar" */
+        #id2 {
+            background-color: transparent;
+            color: #4d40d7;
+        }
+
+        /* Estilo do texto da chamada */
+        #chamada {
+            font-size: 32px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #chamada br {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Estilo do texto da moto */
+        #moto {
+            color: gray;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #moto br {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Estilo da imagem */
+        #capi img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        #principal {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="superior">
+        <span class="menu">plataforma <span class="material-symbols-outlined">keyboard_arrow_down</span></span>
+        <span class="menu">soluções <span class="material-symbols-outlined">keyboard_arrow_down</span></span>
+        <span class="menu">companhia <span class="material-symbols-outlined">keyboard_arrow_down</span></span>
+        <span class="menu">comunidade <span class="material-symbols-outlined">keyboard_arrow_down</span></span>
+    </div>
+
+    <div id="botoes">
+        <a href="#" id="id2">Exemplo</a>
+        <a href="#" id="id1">Entrar</a>
+    </div>
+
+    <div id="principal">
+        <p id="chamada">
+            Vamos <br> 
+            conversar sobre <br>
+            as características <br>
+            da plataforma
+        </p>
+
+        <p id="moto">
+            Capivara TXM conecta cada interação através de cada uma das quatro <br>
+            experiências chave através do ciclo de vida do talento.
+        </p>
+
+        <a href="#" id="id1">Peça uma amostra</a>
+    </div>
+
+    <div id="capi">
+        <img src="https://s1.static.brasilescola.uol.com.br/be/2022/04/capivaras.jpg" alt="Capivara">
+    </div>
+
+</body>
+</html>
