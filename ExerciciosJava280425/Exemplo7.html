@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <script>
+	window.onload = inicio;
+	function inicio() {
+	    let botaosoma = document.getElementById('botaoSoma');
+	    botaosoma.addEventListener('click', soma);
+
+        let botaosub = document.getElementById('botaoSub');
+	    botaosub.addEventListener('click', sub);
+
+        let botaomult = document.getElementById('botaomult');
+	    botaomult.addEventListener('click', mult);
+
+        let botaodiv = document.getElementById('botaodiv');
+	    botaodiv.addEventListener('click', div);
+
+        let botaoexp = document.getElementById('botaoexp');
+	    botaoexp.addEventListener('click', exp);
+
+        let botaorest = document.getElementById('botaorest');
+	    botaorest.addEventListener('click', rest);
+
+        let botaoinc = document.getElementById('botaoinc');
+	    botaoinc.addEventListener('click', inc);
+
+        let botaodec = document.getElementById('botaodec');
+	    botaodec.addEventListener('click', dec);
+	}
+
+    function soma() {
+	// Sem problema mesmo nome!
+	let saidasoma = document.getElementById('saidasoma');
+	let x = 7;
+	let y = 3;
+	saidasoma.innerHTML = x + y;
+    }
+
+    function sub() {
+    let saidasub = document.getElementById('saidasub');
+    let x = 7;
+    let y = 3;
+    saidasub.innerHTML = x - y;
+    }
+
+    function mult() {
+    let saidamult = document.getElementById('saidamult');
+    let x = 7;
+    let y = 3;
+    saidamult.innerHTML = x * y;
+    }
+
+    function div() {
+    let saidadiv = document.getElementById('saidadiv');
+    let x = 12;
+    let y = 3;
+    saidadiv.innerHTML = x / y;
+    }
+
+    function exp() {
+    let saidaexp = document.getElementById('saidaexp');
+    let x = 12;
+    let y = 3;
+    saidaexp.innerHTML = x ** y;
+    }
+
+    function rest() {
+    let saidarest = document.getElementById('saidarest');
+    let x = 12;
+    let y = 3;
+    saidarest.innerHTML = x % y;
+    }
+
+    function inc() {
+    let saidainc = document.getElementById('saidainc');
+    let x = 12;
+    saidainc.innerHTML = ++x;
+    }
+
+    function dec() {
+    let saidadec = document.getElementById('saidadec');
+    let x = 12;
+    saidadec.innerHTML = --x;
+    }
+    </script>
+</head>
+<body>
+    <p id="saidasoma">JS esperando evento</p>
+    <input type="button" value="+" id="botaoSoma">
+
+    <p id="saidasub">JS esperando evento</p>
+    <input type="button" value="-" id="botaoSub">
+
+    <p id="saidamult">JS esperando evento</p>
+    <input type="button" value="*" id="botaomult">
+
+    <p id="saidadiv">JS esperando evento</p>
+    <input type="button" value="/" id="botaodiv">
+
+    <p id="saidaexp">JS esperando evento</p>
+    <input type="button" value="**" id="botaoexp">
+
+    <p id="saidarest">JS esperando evento</p>
+    <input type="button" value="%" id="botaorest">
+
+    <p id="saidainc">JS esperando evento</p>
+    <input type="button" value="++" id="botaoinc">
+
+    <p id="saidadec">JS esperando evento</p>
+    <input type="button" value="--" id="botaodec">
+</body>
+</html>
