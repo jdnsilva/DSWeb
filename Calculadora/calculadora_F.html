@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script>
+    window.onload = inicio;
+    let visor;
+    let primeiroNumero = null;
+    let operacao = null;
+
+    function inicio() {
+        visor = document.getElementById('visor');
+        visor.value = "0"; // Inicializa o visor com 0
+
+        // Números
+        document.getElementById('botao0').addEventListener('click', () => adicionarAoVisor('0'));
+        document.getElementById('botao1').addEventListener('click', () => adicionarAoVisor('1'));
+        document.getElementById('botao2').addEventListener('click', () => adicionarAoVisor('2'));
+        document.getElementById('botao3').addEventListener('click', () => adicionarAoVisor('3'));
+        document.getElementById('botao4').addEventListener('click', () => adicionarAoVisor('4'));
+        document.getElementById('botao5').addEventListener('click', () => adicionarAoVisor('5'));
+        document.getElementById('botao6').addEventListener('click', () => adicionarAoVisor('6'));
+        document.getElementById('botaoSete').addEventListener('click', () => adicionarAoVisor('7'));
+        document.getElementById('botaoOito').addEventListener('click', () => adicionarAoVisor('8'));
+        document.getElementById('botaoNove').addEventListener('click', () => adicionarAoVisor('9'));
+        document.getElementById('botaoPonto').addEventListener('click', () => adicionarAoVisor('.'));
+
+        // Operadores
+        document.getElementById('botaoMais').addEventListener('click', () => definirOperacao('+'));
+        document.getElementById('botaoMenos').addEventListener('click', () => definirOperacao('-'));
+        document.getElementById('botaoMultiplicar').addEventListener('click', () => definirOperacao('*'));
+        document.getElementById('botaoDividir').addEventListener('click', () => definirOperacao('/'));
+        document.getElementById('botaoIgual').addEventListener('click', calcularResultado);
+
+        // Limpar e Apagar
+        document.getElementById('botaoLimpar').addEventListener('click', limparVisor);
+        document.getElementById('botaoApagar').addEventListener('click', apagarUltimo);
+    }
+
+    function adicionarAoVisor(valor) {
+        if (visor.value === "0") {
+            visor.value = valor;
+        } else {
+            visor.value += valor;
+        }
+    }
+
+    function limparVisor() {
+        visor.value = "0";
+        primeiroNumero = null;
+        operacao = null;
+    }
+
+    function apagarUltimo() {
+        let textoVisor = visor.value;
+        if (textoVisor.length > 1) {
+            visor.value = textoVisor.slice(0, -1);
+        } else {
+            visor.value = "0";
+        }
+    }
+
+    function definirOperacao(op) {
+        if (primeiroNumero === null) {
+            primeiroNumero = parseFloat(visor.value);
+            operacao = op;
+            visor.value = "0";
+        } else {
+            calcularResultado(); // Se já houver um primeiro número e operação
+            primeiroNumero = parseFloat(visor.value);
+            operacao = op;
+            visor.value = "0";
+        }
+    }
+
+    function calcularResultado() {
+        if (primeiroNumero !== null && operacao !== null) {
+            const segundoNumero = parseFloat(visor.value);
+            let resultado;
+            switch (operacao) {
+                case '+':
+                    resultado = primeiroNumero + segundoNumero;
+                    break;
+                case '-':
+                    resultado = primeiroNumero - segundoNumero;
+                    break;
+                case '*':
+                    resultado = primeiroNumero * segundoNumero;
+                    break;
+                case '/':
+                    if (segundoNumero === 0) {
+                        visor.value = "Erro!";
+                        primeiroNumero = null;
+                        operacao = null;
+                        return;
+                    }
+                    resultado = primeiroNumero / segundoNumero;
+                    break;
+                default:
+                    return;
+            }
+            visor.value = resultado;
+            primeiroNumero = null;
+            operacao = null;
+        }
+    }
+    </script>
+</head>
+<body>
+    <input type="text" id="visor" disabled style="width: 195px; margin-bottom: 10px; text-align: right;">
+    <div id="botoes">
+        <input type="button" value="C" id="botaoLimpar">
+        <input type="button" value="←" id="botaoApagar"> <br>
+        <input type="button" value="7" id="botaoSete">
+        <input type="button" value="8" id="botaoOito">
+        <input type="button" value="9" id="botaoNove">
+        <input type="button" value="/" id="botaoDividir"> <br>
+        <input type="button" value="4" id="botao4">
+        <input type="button" value="5" id="botao5">
+        <input type="button" value="6" id="botao6">
+        <input type="button" value="*" id="botaoMultiplicar"> <br>
+        <input type="button" value="1" id="botao1">
+        <input type="button" value="2" id="botao2">
+        <input type="button" value="3" id="botao3">
+        <input type="button" value="-" id="botaoMenos"> <br>
+        <input type="button" value="0" id="botao0" style="width: 85px;">
+        <input type="button" value="." id="botaoPonto">
+        <input type="button" value="=" id="botaoIgual">
+        <input type="button" value="+" id="botaoMais">
+    </div>
+</body>
+</html>
