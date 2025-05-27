@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World!</title>
+    <script>
+	window.onload = inicio;
+
+	function inicio() {
+	    let botao = document.getElementById('botao');
+	    botao.addEventListener('click', mostra);
+	}
+
+	function mostra() {
+	    let txtNome = document.getElementById('nome');
+
+	    let nome = txtNome.value;
+
+        let txtSalario = document.getElementById('salario');
+
+        let salario = parseFloat(txtSalario.value);
+
+        let TxtVendas = document.getElementById('vendas');
+
+        let vendas = parseFloat(TxtVendas.value);
+
+        let total = salario;
+
+        let TxtSaida = document.getElementById('saida');
+
+        let tabela = document.getElementById('tabela');
+
+        for(let i = 0; i < 5; i++){
+            total += vendas * 0.05;
+            tabela.innerHTML += '<p>' + total + '<p>'
+
+        }
+    }
+    </script>
+</head>
+<body>
+    Nome:<input type="text" id="nome"><br>
+    Salario:<input type="text" id="salario"><br>
+    Vendas:<input type="text" id="vendas"><br>
+    <input type="button" id="botao" value = "confirma">
+    <table id="tabela">
+
+    </table>
+    
+</body>
+</html>
