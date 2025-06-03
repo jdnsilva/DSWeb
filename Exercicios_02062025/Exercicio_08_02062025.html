@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <style>
+        .dark {
+            color: white;
+            background-color: black;
+        }
+        .highlight {
+            background-color: yellow; /* Destaque do dia */
+        }
+    </style>
+    <script>
+        window.onload = inicio;
+
+        function inicio() {
+            let botao = document.getElementById('btnGera');
+            botao.addEventListener('click', gera);
+            let botaoMarca = document.getElementById('btnMarca');
+            botaoMarca.addEventListener('click', marca);
+        }
+
+        function gera() {
+            let tabela = document.getElementsByTagName('table')[0];
+            let elementos = '';
+            elementos += '<tr>';
+            for (var i = 1; i <= 31; i++) {  // Alterado para gerar 31 dias
+                if ((i-1) % 7 == 0) {  // Alterado para adicionar uma nova linha a cada 7 dias (7 colunas)
+                    elementos += '</tr><tr>';
+                }
+                elementos += '<td>' + i + '</td>';
+            }
+            elementos += '</tr>';
+            tabela.innerHTML = elementos;
+        }
+
+        function marca() {
+            let numeroDia = document.getElementById('numero').value;
+            let tabela = document.getElementsByTagName('table')[0];
+            let celulas = tabela.getElementsByTagName('td');
+            
+            // Limpa qualquer marcação anterior
+            for (let i = 0; i < celulas.length; i++) {
+                celulas[i].classList.remove('dark');  // Remove a classe 'dark' de todos os dias
+            }
+
+            // Marca o dia selecionado
+            for (let i = 0; i < celulas.length; i++) {
+                if (celulas[i].innerText == numeroDia) {
+                    celulas[i].classList.add('dark');  // Adiciona a classe 'dark' ao dia selecionado
+                    break; // Marca apenas o primeiro dia encontrado
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <table></table>
+    <input type="button" value="Gera" id="btnGera"><br>
+    <label for="">Dia:</label>
+    <input type="text" id="numero" value="0">
+    <input type="button" value="Marca" id="btnMarca">
+</body>
+</html>
