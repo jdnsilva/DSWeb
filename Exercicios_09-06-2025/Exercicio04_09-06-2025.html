@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <script>
+        let contador = 1;
+        let tarefasConcluidas = [];
+
+        window.onload = inicio;
+
+        function inicio() {
+            let botao = document.getElementById('btnAdiciona');
+            botao.addEventListener('click', adiciona);
+            renderizaTabela();
+        }
+
+        function adiciona() {
+            let campoNome = document.getElementById('nome');
+            let nomeAtividade = campoNome.value.trim();
+
+            if (nomeAtividade === '') {
+                alert('Por favor, insira o nome da atividade.');
+                return;
+            }
+
+            let atividadesDiv = document.getElementById('atividades');
+            let idCheckbox = `c${contador}`;
+
+            let checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = idCheckbox;
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    let dataEncerramento = new Date().toLocaleString();
+                    tarefasConcluidas.push({
+                        nome: nomeAtividade,
+                        data: dataEncerramento
+                    });
+                } else {
+                    let index = tarefasConcluidas.findIndex(tarefa => tarefa.nome === nomeAtividade);
+                    if (index > -1) {
+                        tarefasConcluidas.splice(index, 1);
+                    }
+                }
+                renderizaTabela();
+            });
+
+            let label = document.createElement('label');
+            label.htmlFor = idCheckbox;
+            label.textContent = ` ${nomeAtividade} `;
+
+            atividadesDiv.appendChild(checkbox);
+            atividadesDiv.appendChild(label);
+            atividadesDiv.appendChild(document.createElement('br'));
+
+            campoNome.value = '';
+            contador++;
+        }
+
+        function renderizaTabela() {
+            let tabelaDiv = document.getElementById('tarefas-encerradas');
+            let htmlTabela = '<h3>Tarefas Encerradas</h3>';
+
+            if (tarefasConcluidas.length === 0) {
+                htmlTabela += '<p>Nenhuma tarefa encerrada ainda.</p>';
+            } else {
+                htmlTabela += '<table border="1">';
+                htmlTabela += '<tr><th>Nome da Tarefa</th><th>Data de Encerramento</th></tr>';
+                tarefasConcluidas.forEach(tarefa => {
+                    htmlTabela += `<tr><td>${tarefa.nome}</td><td>${tarefa.data}</td></tr>`;
+                });
+                htmlTabela += '</table>';
+            }
+            tabelaDiv.innerHTML = htmlTabela;
+        }
+    </script>
+</head>
+<body>
+    <label for="nome">Atividade:</label>
+    <input type="text" id="nome">
+    <input type="button" id="btnAdiciona" value="Adicionar"><br>
+
+    <div id="atividades"></div>
+
+    <hr>
+
+    <div id="tarefas-encerradas"></div>
+
+</body>
+</html>
