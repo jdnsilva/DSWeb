@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Objeto Carro</title>
+    <script>
+        let carro = {
+            nome: "",
+            ano: 0,
+            cor: "",
+            velocidade: 0,
+            acelerar: function() {
+                this.velocidade = this.velocidade + 3;
+            },
+            frear: function() {
+                if (this.velocidade > 0) {
+                    this.velocidade = this.velocidade - 2;
+                    if (this.velocidade < 0) {
+                        this.velocidade = 0;
+                    }
+                }
+            }
+        };
+
+        function criarCarro() {
+            carro.nome = document.getElementById("nome").value;
+            carro.ano = parseInt(document.getElementById("ano").value);
+            carro.cor = document.getElementById("cor").value;
+            carro.velocidade = 0;
+            atualizarVelocidade();
+        }
+
+        function acelerarCarro() {
+            carro.acelerar();
+            atualizarVelocidade();
+        }
+
+        function frearCarro() {
+            carro.frear();
+            atualizarVelocidade();
+        }
+
+        function atualizarVelocidade() {
+            document.getElementById("velocidade").textContent = "Velocidade: " + carro.velocidade + " km/h";
+        }
+    </script>
+</head>
+<body>
+    <h2>Cadastro do Carro</h2>
+
+    Nome: <input type="text" id="nome"><br><br>
+    Ano: <input type="text" id="ano"><br><br>
+    Cor: <input type="text" id="cor"><br><br>
+
+    <input type="button" value="Criar Carro" onclick="criarCarro()"><br><br>
+
+    <input type="button" value="Acelerar" onclick="acelerarCarro()">
+    <input type="button" value="Frear" onclick="frearCarro()"><br><br>
+
+    <p id="velocidade">Velocidade: 0 km/h</p>
+</body>
+</html>

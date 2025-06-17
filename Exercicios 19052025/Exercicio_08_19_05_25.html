@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+    <script>
+        function transformaJSON() {
+            var textoJSON = document.getElementById("entrada").value;
+            var objeto = JSON.parse(textoJSON);
+
+            document.getElementById("saida").textContent =
+                "Nome: " + objeto.nome + "\nIdade: " + objeto.idade;
+        }
+    </script>
+</head>
+<body>
+    <h2>JSON para Objeto:</h2>
+
+    <p>Digite um JSON (ex: {"nome":"Maria","idade":30})</p>
+    <textarea id="entrada" rows="4" cols="40"></textarea><br><br>
+
+    <input type="button" value="Transformar" onclick="transformaJSON()"><br><br>
+
+    <pre id="saida"></pre>
+</body>
+</html>
+

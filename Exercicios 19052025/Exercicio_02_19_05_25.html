@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo</title>
+    <script>
+        window.onload = function () {
+            let campoTexto = document.getElementById('entrada');
+            let botaoLimpar = document.getElementById('limpar');
+            let botaoMostrar = document.getElementById('mostrar');
+            let saida = document.getElementById('saida');
+
+            botaoLimpar.onclick = function () {
+                campoTexto.value = ""; // Limpa o conteúdo do campo
+                saida.textContent = ""; // Opcional: limpa também o parágrafo de saída
+            };
+
+            botaoMostrar.onclick = function () {
+                saida.textContent = campoTexto.value; // Mostra o valor do campo
+            };
+        };
+    </script>
+</head>
+<body>
+    <input type="text" id="entrada"><br>
+    <input type="button" id="limpar" value="Limpar">
+    <input type="button" id="mostrar" value="Mostrar"><br>
+    <p id="saida"></p>
+</body>
+</html>

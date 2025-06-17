@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Nota</title>
+    <script>
+        window.onload = function () {
+            let campoNota = document.getElementById('nota');
+            let botaoVerificar = document.getElementById('verificar');
+            let resultado = document.getElementById('resultado');
+
+            botaoVerificar.onclick = function () {
+                let nota = parseFloat(campoNota.value);
+
+                if (nota < 6) {
+                    resultado.textContent = "Reprovado";
+                } else {
+                    resultado.textContent = "Aprovado";
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <h2>Digite a nota do aluno:</h2>
+    <input type="text" id="nota"><br>
+    <input type="button" id="verificar" value="Verificar"><br><br>
+    <p id="resultado"></p>
+</body>
+</html>
